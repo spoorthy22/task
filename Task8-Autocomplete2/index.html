@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script type="text/javascript" src="jquery.autocomplete.js"></script>
+<title>Autocomplete Plugin</title>
+</head>
+
+<body>
+<div id="jquery-script-menu">
+<div class="jquery-script-center">
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+  <div class="wrapper container">
+      <h1>Autocomplete Plugin</h1>
+      <form class="clearfix">
+          <input type="text" id="friend_id" name="friend[id]" class="form-control">
+      </form>
+    </div>
+
+    <script>
+      $(function()
+{
+    var mockData = [
+        { name: 'Oscar Filippelli'},
+        { name: 'Kevin Palmer'},
+        { name: 'Kelly Bratton' },
+        { name: 'Meredith Bratton' },
+        { name: 'Meredith Howard' },
+        { name: 'Andy Martin'},
+        { name: 'Creed Halpert'},
+        { name: 'Karen Howard'},
+        { name: 'Phyllis Malone'},
+        { name: 'Jim Howard'},
+        { name: 'Michael Scott' },
+        { name: 'Jim Martinez' },
+        { name: 'Michael Filippelli'},
+        { name: 'Michael Bernard' },
+        { name: 'Jim Malone'},
+        { name: 'Angela Scott' },
+        { name: 'Michael Howard'},
+        { name: 'Meredith Schrute'},
+        { name: 'Ryan Kapoor' },
+        { name: 'Ryan Bernard' },
+        { name: 'Michael Lapin' },
+        { name: 'Oscar Bernard' },
+        { name: 'Michael Filippelli' },
+        { name: 'Kelly Hudson'},
+        { name: 'Creed Scott' },
+        { name: 'Angela Filippelli' },
+        { name: 'Creed Filippelli' },
+        { name: 'Angela Bratton' },
+        { name: 'Pam Kapoor'},
+        { name: 'Michael Lapin'},
+        { name: 'Dwight Beesly'},
+        { name: 'Oscar Lapin'},
+        { name: 'Pam Hudson'},
+        { name: 'Angela Filippelli'},
+        { name: 'Stanley Bernard'},
+        { name: 'Kelly Halpert'},
+        { name: 'Meredith Scott'},
+        { name: 'Ryan Lapin'},
+        { name: 'Angela Kapoor'},
+        { name: 'Pam Martin'},
+        { name: 'Charles Xavier'}
+    ];
+
+    $('#friend_id').awesomecomplete({
+        noResultsMessage: '<p>no results found!</p>',
+        staticData: mockData,
+        beforeKeyAction: function (activeItem, e) {
+            console.log(activeItem);
+        },
+        afterKeyAction: function (activeItem, e) {
+            console.log(e.target);
+        },
+        valueFunction: function(dataItem) {
+            return dataItem['name'];
+        }
+    });
+});
+
+</script>
+</body>
+</html>
