@@ -1,0 +1,19 @@
+<h3>Products List</h3>
+<table>
+	<thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Cost</th>
+        <th>Actions</th>
+    </tr>
+	</thead>
+    <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.cost}}</td>
+        <td>
+            <button class="btn btn-success" [routerLink]="['/cart', { id:product.id }]">Add to Cart</button>
+        </td>
+    </tr>
+</table>
