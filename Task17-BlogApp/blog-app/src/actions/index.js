@@ -1,0 +1,79 @@
+import axios from 'axios';
+
+export const SET_LOGIN_PENDING = 'set_login_pending';
+export const SET_LOGIN_SUCCESS = 'set_login_success';
+export const SET_LOGIN_ERROR = 'set_login_error';
+
+export const FETCH_POSTS = 'fetch_posts';
+export const FETCH_POST = 'fetch_post';
+export const CREATE_POST = 'create_post';
+export const DELETE_POST = 'delete_post';
+
+const ROOT_URL = 'https://reduxblog.herokuapp.com/api';
+const API_KEY = '?key=hu53yin';
+
+export function set_login_pending(){
+  const request = axios.get(`${ROOT_URL}/login`);
+
+  return{
+    type: SET_LOGIN_PENDING,
+    payload: request
+  };
+}
+
+export function set_login_success(){
+  const request = axios.get(`${ROOT_URL}/login`);
+
+  return{
+    type: SET_LOGIN_SUCCESS,
+    payload: request
+  };
+}
+
+export function set_login_error(){
+  const request = axios.get(`${ROOT_URL}/login`);
+
+  return{
+    type: SET_LOGIN_ERROR,
+    payload: request
+  };
+}
+
+
+export function fetchPosts() {
+  const request = axios.get(`${ROOT_URL}/posts${API_KEY}`);
+
+  return {
+    type: FETCH_POSTS,
+    payload: request
+  };
+}
+
+export function createPost(values, callback) {
+  const request = axios.post(`${ROOT_URL}/posts${API_KEY}`, values)
+    .then(() => callback());
+
+  return {
+    type: CREATE_POST,
+    payload: request
+  };
+}
+
+export function fetchPost(id) {
+  const request = axios.get(`${ROOT_URL}/posts/${id}${API_KEY}`);
+
+  return {
+    type: FETCH_POST,
+    payload: request
+  }
+}
+
+export function deletePost(id, callback) {
+  const request = axios.delete(`${ROOT_URL}/posts/${id}${API_KEY}`)
+    .then(() => callback());
+
+  return {
+    type: DELETE_POST,
+    payload: id
+  }
+}
